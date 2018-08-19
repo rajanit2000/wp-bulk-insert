@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Fired during plugin deactivation
+ * Fired during plugin deactivation.
  *
  * @link       http://example.com
  * @since      1.0.0
@@ -15,19 +15,19 @@ namespace WPBulkInsert\utils;
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
+ *
  * @author     David Aguilera <david.aguilera@neliosoftware.com>
  */
-class Deactivator {
-
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function deactivate() {
-
-	}
-
+class Deactivator
+{
+    /**
+     * Short Description. (use period).
+     *
+     * Long Description.
+     *
+     * @since    1.0.0
+     */
+    public static function deactivate()
+    {
+    }
 }
