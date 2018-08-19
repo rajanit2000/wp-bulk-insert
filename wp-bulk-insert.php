@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The plugin bootstrap file
+ * The plugin bootstrap file.
  *
  * This file is read by WordPress to generate the plugin information in the plugin
  * admin area. This file also includes all of the dependencies used by the plugin,
@@ -27,31 +27,33 @@
 namespace WPBulkInsert;
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+if (!defined('WPINC')) {
+    die;
 }
 
 // We load Composer's autoload file
-require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+require_once plugin_dir_path(__FILE__).'vendor/autoload.php';
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-wp-bulk-insert-activator.php
+ * This action is documented in includes/class-wp-bulk-insert-activator.php.
  */
-function activate_wp_bulk_insert() {
-	utils\Activator::activate();
+function activate_wp_bulk_insert()
+{
+    utils\Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-wp-bulk-insert-deactivator.php
+ * This action is documented in includes/class-wp-bulk-insert-deactivator.php.
  */
-function deactivate_wp_bulk_insert() {
-	utils\Deactivator::deactivate();
+function deactivate_wp_bulk_insert()
+{
+    utils\Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, '\WPBulkInsert\activate_wp_bulk_insert' );
-register_deactivation_hook( __FILE__, '\WPBulkInsert\deactivate_wp_bulk_insert' );
+register_activation_hook(__FILE__, '\WPBulkInsert\activate_wp_bulk_insert');
+register_deactivation_hook(__FILE__, '\WPBulkInsert\deactivate_wp_bulk_insert');
 
 /**
  * Begins execution of the plugin.
@@ -62,8 +64,9 @@ register_deactivation_hook( __FILE__, '\WPBulkInsert\deactivate_wp_bulk_insert' 
  *
  * @since 1.0.0
  */
-function run_wp_bulk_insert() {
-	$plugin = new Main();
-	$plugin->run();
+function run_wp_bulk_insert()
+{
+    $plugin = new Main();
+    $plugin->run();
 }
 run_wp_bulk_insert();
