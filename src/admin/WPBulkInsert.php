@@ -21,9 +21,8 @@ use WPBulkInsert\admin\posts\PostModule;
  */
 class WPBulkInsert
 {
-
     /**
-     * Slug of WP Bulk Insert
+     * Slug of WP Bulk Insert.
      */
     const BULK_WP_MENU_SLUG = 'wp-bulk-insert';
 
@@ -85,18 +84,17 @@ class WPBulkInsert
      *
      * @var array
      */
-    protected $label = array(
+    protected $label = [
         'page_title' => '',
         'menu_title' => '',
-    );
+    ];
 
     /**
      * List of Primary Admin pages.
      *
      * @var BasePage[]
-     *
      */
-    private $primary_pages = array();
+    private $primary_pages = [];
 
     /**
      * Initialize the class and set its properties.
@@ -121,9 +119,10 @@ class WPBulkInsert
      *
      * @return WPBulkInsert The one true instance of WPBulkInsert.
      */
-    public static function get_instance() {
-        if ( ! isset( self::$instance ) && ! ( self::$instance instanceof WPBulkInsert ) ) {
-            self::$instance = new WPBulkInsert();
+    public static function get_instance()
+    {
+        if (!isset(self::$instance) && !(self::$instance instanceof self)) {
+            self::$instance = new self();
         }
 
         return self::$instance;
@@ -131,7 +130,7 @@ class WPBulkInsert
 
     public static function add_admin_menu()
     {
-        foreach ( $this->get_primary_pages() as $page ) {
+        foreach ($this->get_primary_pages() as $page) {
             $page->register();
         }
     }
@@ -139,17 +138,19 @@ class WPBulkInsert
     /**
      * Get the list of registered admin pages.
      */
-    public function get_primary_pages() {
-        if ( empty( $this->primary_pages ) ) {
+    public function get_primary_pages()
+    {
+        if (empty($this->primary_pages)) {
             $posts_page = $this->get_insert_posts_admin_page();
 
-            $this->primary_pages[ $posts_page->get_page_slug() ] = $posts_page;
+            $this->primary_pages[$posts_page->get_page_slug()] = $posts_page;
         }
 
         return $this->primary_pages;
     }
 
-    private function get_insert_posts_admin_page() {
+    private function get_insert_posts_admin_page()
+    {
         $posts_page = new PostModule();
 
         return $posts_page;
@@ -206,7 +207,8 @@ class WPBulkInsert
      *
      * @return \WP_Screen Current screen.
      */
-    public function get_screen() {
+    public function get_screen()
+    {
         return $this->screen;
     }
 
@@ -215,7 +217,8 @@ class WPBulkInsert
      *
      * @return string Slug of the page.
      */
-    public function get_page_slug() {
+    public function get_page_slug()
+    {
         return $this->page_slug;
     }
 
@@ -224,7 +227,8 @@ class WPBulkInsert
      *
      * @return string Hook Suffix of the page.
      */
-    public function get_hook_suffix() {
+    public function get_hook_suffix()
+    {
         return $this->hook_suffix;
     }
 
@@ -233,7 +237,8 @@ class WPBulkInsert
      *
      * @return string Url to plugin directory.
      */
-    protected function get_plugin_dir_url() {
-        return plugin_dir_url( $this->plugin_file );
+    protected function get_plugin_dir_url()
+    {
+        return plugin_dir_url($this->plugin_file);
     }
 }
