@@ -12,6 +12,8 @@
 
 namespace WPBulkInsert;
 
+use WPBulkInsert\admin\WPBulkInsert;
+
 /**
  * The core plugin class.
  *
@@ -98,10 +100,12 @@ class Main
      */
     private function define_admin_hooks()
     {
-        $plugin_admin = new admin\Controller($this->get_wp_bulk_insert(), $this->get_version());
+        $plugin_admin = new WPBulkInsert();
 
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
+
+        $this->loader->add_action('admin_menu', $plugin_admin, 'add_admin_menu' );
     }
 
     /**
