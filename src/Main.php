@@ -72,7 +72,6 @@ class Main
 
         $this->set_locale();
         $this->define_admin_hooks();
-        $this->define_public_hooks();
     }
 
     /**
@@ -103,20 +102,6 @@ class Main
 
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
-    }
-
-    /**
-     * Register all of the hooks related to the public-facing functionality
-     * of the plugin.
-     *
-     * @since    1.0.0
-     */
-    private function define_public_hooks()
-    {
-        $plugin_public = new front\Controller($this->get_wp_bulk_insert(), $this->get_version());
-
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
     }
 
     /**
