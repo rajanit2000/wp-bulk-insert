@@ -66,7 +66,7 @@ class Main
      */
     public function __construct()
     {
-        $this->plugin_name = 'wp-bulk-insert';
+        $this->plugin_name = 'WP Bulk Insert';
         $this->version = '1.0.0';
         $this->loader = new utils\Loader();
 
