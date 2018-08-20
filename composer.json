@@ -1,6 +1,6 @@
 {
 	"name" : "vendor/wp-bulk-insert",
-	"description" : "The description of your plugin.",
+	"description" : "This Plugin use to creare the bulk amount of Posts",
 	"type" : "wordpress-plugin",
 	"keywords" : [ "wordpress" ],
 	"license" : "GPL-2.0+",

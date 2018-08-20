@@ -14,7 +14,7 @@
  * @wordpress-plugin
  * Plugin Name:       WP Bulk Insert
  * Plugin URI:        http://example.com/wp-bulk-insert/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       This Plugin use to creare the bulk amount of Posts.
  * Version:           1.0.0
  * Author:            Rajan V
  * Author URI:        http://example.com/
